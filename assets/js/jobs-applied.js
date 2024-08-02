@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allJobs = [];
 
-    fetch('/src/data/applied-jobs.json')
+    fetch('/data/applied-jobs.json')
         .then(response => response.json())
         .then(jobs => {
             allJobs = jobs;
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const jobCard = `
                 <div class="p-4 w-full md:w-1/2 lg:w-1/2">
                     <div class="h-full border-2 border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="/src/assets/img/${job.imagen}" width="720px" height="420px" alt="job">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="/assets/img/${job.imagen}" width="720px" height="420px" alt="job">
                         <div class="p-6">
                             <h2 class="title-font text-lg font-medium text-gray-900 dark:text-white mb-3">${job.puesto}</h2>
                             <h3 class="text-gray-500 dark:text-gray-300 mb-3">${job.empresa}</h3>
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="modal hidden">
                                     <div class="modal-content mt-14 bg-white dark:bg-gray-800">
                                         <span class="closeModal">&times;</span>
-                                        <img class="object-cover object-center rounded-lg shadow-md" src="/src/assets/img/${job.imagen}" alt="job" style="width: 100%; height: 200px;">
+                                        <img class="object-cover object-center rounded-lg shadow-md" src="/assets/img/${job.imagen}" alt="job" style="width: 100%; height: 200px;">
                                         <div class="p-6">
                                             <h2 class="title-font text-lg font-medium text-gray-900 dark:text-white mb-3">${job.puesto}</h2>
                                             <h3 class="text-gray-600 dark:text-gray-300 mb-3"><span class="font-bold">Empresa:</span> ${job.empresa}</h3>

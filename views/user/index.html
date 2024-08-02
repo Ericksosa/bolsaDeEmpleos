@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+      rel="stylesheet">
+    <script
+      src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
+      rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>JobHunt Dashboard</title>
+    <style>
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: linear-gradient(145deg, #1f2937, #111827);
+            color: #e5e7eb;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .text-shadow {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+  </head>
+
+  <body class="bg-gray-900 text-gray-200">
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/views/user/"
+          class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="/assets/img/target1.png" class="h-10"
+            alt="Flowbite Logo" />
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">JobHunt</span>
+        </a>
+        <div
+          class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <button type="button"
+            class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            id="user-menu-button" aria-expanded="false"
+            data-dropdown-toggle="user-dropdown"
+            data-dropdown-placement="bottom">
+            <span class="sr-only">Open user menu</span>
+            <img class="w-8 h-8 rounded-full" src="../../assets/img/Erick.jpeg"
+              alt="user photo">
+          </button>
+          <!-- Dropdown menu -->
+          <div
+            class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+            id="user-dropdown">
+            <div class="px-4 py-3">
+              <span class="block text-sm text-gray-900 dark:text-white">Erick
+                Sosa</span>
+              <span
+                class="block text-sm  text-gray-500 truncate dark:text-gray-400">erick@edsrdev.com</span>
+            </div>
+            <ul class="py-2" aria-labelledby="user-menu-button">
+              <li>
+                <a href="/views/user/"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Tablero</a>
+              </li>
+              <li>
+                <a href="./profile/"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Perfil</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Configuración</a>
+              </li>
+              <li>
+                <a href="/"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-red-700 dark:hover:text-white">Cerrar
+                  Sesión</a>
+              </li>
+            </ul>
+          </div>
+          <button data-collapse-toggle="navbar-user" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-user" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          id="navbar-user">
+          <ul
+            class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <a href="/views/user/"
+                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                aria-current="page">Tablero</a>
+            </li>
+            <li>
+              <a href="/views/user/offers.html"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                aria-current="page">Ofertas de Trabajo</a>
+            </li>
+            <li>
+              <a href="./profile/"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Perfil</a>
+            </li>
+            <li>
+              <a href="./applications/"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Mis
+                Aplicaciones</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="min-h-screen flex flex-col">
+      <header class="bg-gray-800 p-8 text-white shadow-md">
+        <h1 class="text-3xl font-bold text-shadow">Tablero Personal</h1>
+      </header>
+      <main class="flex-1 p-6">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          <div class="bg-blue-700 p-6 rounded-lg shadow-lg card">
+            <h2 class="text-xl font-semibold text-shadow">Total
+              Postulaciones</h2>
+            <p class="text-3xl font-bold">25</p>
+          </div>
+          <div class="bg-green-700 p-6 rounded-lg shadow-lg card">
+            <h2
+              class="text-xl font-semibold text-shadow">Postulaciones
+              Aceptadas</h2>
+            <p class="text-3xl font-bold">9</p>
+          </div>
+          <div class="bg-red-700 p-6 rounded-lg shadow-lg card">
+            <h2
+              class="text-xl font-semibold text-shadow">Postulaciones
+              Rechazadas</h2>
+            <p class="text-3xl font-bold">6</p>
+          </div>
+          <div class="bg-yellow-700 p-6 rounded-lg shadow-lg card">
+            <h2
+              class="text-xl font-semibold text-shadow">Postulaciones
+              Pendientes</h2>
+            <p class="text-3xl font-bold">10</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg card">
+            <h2
+              class="text-xl font-semibold text-shadow mb-4">Postulaciones
+              por Oferta</h2>
+            <canvas id="postulacionesPorOferta"></canvas>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg card">
+            <h2
+              class="text-xl font-semibold text-shadow mb-4">Postulaciones
+              por Mes</h2>
+            <canvas id="postulacionesPorMes"></canvas>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg card">
+            <h2
+              class="text-xl font-semibold text-shadow mb-4">Últimas
+              Postulaciones</h2>
+            <table class="min-w-full bg-gray-800 text-gray-200">
+              <thead>
+                <tr>
+                  <th
+                    class="px-4 py-2 border-b border-gray-700">Título</th>
+                  <th
+                    class="px-4 py-2 border-b border-gray-700">Fecha</th>
+                  <th
+                    class="px-4 py-2 border-b border-gray-700">Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="border-t border-gray-700 px-4 py-2">Desarrollador
+                    Web</td>
+                  <td
+                    class="border-t border-gray-700 px-4 py-2">2024-07-20</td>
+                  <td
+                    class="border-t border-gray-700 px-4 py-2">Activa</td>
+                </tr>
+                <tr>
+                  <td
+                    class="border-t border-gray-700 px-4 py-2">Diseñador
+                    Gráfico</td>
+                  <td
+                    class="border-t border-gray-700 px-4 py-2">2024-07-18</td>
+                  <td
+                    class="border-t border-gray-700 px-4 py-2">Activa</td>
+                </tr>
+                <tr>
+                  <td
+                    class="border-t border-gray-700 px-4 py-2">Gerente
+                    de Proyecto</td>
+                  <td
+                    class="border-t border-gray-700 px-4 py-2">2024-07-15</td>
+                  <td
+                    class="border-t border-gray-700 px-4 py-2">Cerrada</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg shadow-lg card">
+            <h2
+              class="text-xl font-semibold text-shadow mb-4">Estadísticas
+              Adicionales</h2>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <h3
+                  class="text-lg font-semibold text-shadow">Porcentaje de Aceptación</h3>
+                <p class="text-2xl font-bold">45</p>
+              </div>
+              <div>
+                <h3
+                  class="text-lg font-semibold text-shadow">Porcentaje de Rechazo</h3>
+                <p class="text-2xl font-bold">10</p>
+              </div>
+              <div>
+                <h3
+                  class="text-lg font-semibold text-shadow">Postulaciones
+                  Hoy</h3>
+                <p class="text-2xl font-bold">5</p>
+              </div>
+              <div>
+                <h3
+                  class="text-lg font-semibold text-shadow">Ofertas Nuevas Según tu Interés</h3>
+                <p class="text-2xl font-bold">3</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script>
+        const ctxOferta = document.getElementById('postulacionesPorOferta').getContext('2d');
+        const postulacionesPorOfertaChart = new Chart(ctxOferta, {
+            type: 'bar',
+            data: {
+                labels: ['Desarrollador Web', 'Diseño Grafico', 'Gerente de Proyecto', 'Analista de Sistemas', 'Analista de Negocios'],
+                datasets: [{
+                    label: 'Postulaciones',
+                    data: [5, 4, 3, 2, 1 ],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ctxMes = document.getElementById('postulacionesPorMes').getContext('2d');
+        const postulacionesPorMesChart = new Chart(ctxMes, {
+            type: 'line',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
+                datasets: [{
+                    label: 'Postulaciones',
+                    data: [10, 11, 9, 12, 7, 6, 9],
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1,
+                    fill: true
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+  </body>
+
+</html>

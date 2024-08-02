@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+            rel="stylesheet">
+        <script
+            src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
+            rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="/assets/js/jobs-offers.js"></script>
+        <title>JobHunt Dashboard</title>
+    </head>
+
+    <body class="bg-gray-900 text-gray-200">
+        <nav class="bg-gray-800 border-b border-gray-700">
+            <div
+                class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="/views/user/"
+                    class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="/assets/img/target1.png" class="h-10"
+                        alt="JobHunt Logo" />
+                    <span
+                        class="self-center text-2xl font-semibold whitespace-nowrap text-shadow">JobHunt</span>
+                </a>
+                <button data-collapse-toggle="navbar-default" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600"
+                    aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+                <div class="hidden w-full md:block md:w-auto"
+                    id="navbar-default">
+                    <ul
+                        class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray-800">
+                        <li>
+                            <a href="./"
+                                class="block py-2 px-3 text-gray-200 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 dark:text-gray-400 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                aria-current="page">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="/views/enterprise/offers/"
+                                class="block py-2 px-3 text-gray-200 rounded md:bg-transparent md:text-blue-500 md:p-0 dark:text-gray-400 md:dark:text-blue-500">Ofertas
+                                de Empleo</a>
+                        </li>
+                        <li>
+                            <a href="/views/enterprise/candidatos/"
+                                class="block py-2 px-3 text-gray-200 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-500 md:p-0 dark:text-gray-400 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Candidatos</a>
+                        </li>
+                        <li>
+                            <a href="/"
+                                class="block py-2 px-3 text-red-200 rounded hover:bg-red-700 md:hover:bg-transparent md:border-0 md:hover:text-red-500 md:p-0 dark:text-red-400 md:dark:hover:text-red-500 dark:hover:bg-red-700 dark:hover:text-white md:dark:hover:bg-transparent">Cerrar
+                                Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="bg-white dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+                <h2
+                    class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Añadir
+                    Nueva Oferta</h2>
+                <form action="#">
+                    <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                        
+                        <div class="col-span-full">
+                            <label for="cover-photo"
+                                class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100">
+                                <div class="relative group inline-block">
+                                    Subir Imagen Referente al Puesto de Trabajo
+                                </div>
+                            </label>
+                            <div
+                                class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 dark:border-gray-600 px-6 py-10">
+                                <div class="text-center">
+                                    <svg
+                                        class="mx-auto h-12 w-12 text-gray-300 dark:text-gray-500"
+                                        viewBox="0 0 24 24" fill="currentColor"
+                                        aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <div
+                                        class="mt-4 flex text-sm leading-6 text-gray-600 dark:text-gray-400">
+                                        <label for="file-upload"
+                                            class="relative cursor-pointer rounded-md bg-white dark:bg-gray-700 font-semibold text-blue-600 dark:text-blue-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 hover:text-blue-500 dark:hover:text-blue-300">
+                                            <span>Subir archivo</span>
+                                            <input id="file-upload"
+                                                name="file-upload" type="file"
+                                                class="sr-only">
+                                        </label>
+                                        <p class="pl-1">o arrastra y suelta</p>
+                                    </div>
+                                    <p
+                                        class="text-xs leading-5 text-gray-600 dark:text-gray-400">JPG,
+                                        PNG, JPEG hasta 10MB</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre
+                                del Puesto</label>
+                            <input type="text" name="name" id="name"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Escribe el nombre del puesto"
+                                required>
+                        </div>
+                        <div class="w-full">
+                            <label for="vacantes"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Máximo
+                                de Vacantes</label>
+                            <input type="number" name="vacantes" id="vacantes"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Introduzca el máximo de vacantes"
+                                required>
+                        </div>
+                        <div class="w-full">
+                            <label for="rango_salarial"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rango
+                                Salarial</label>
+                            <input type="number" name="rango_salarial"
+                                id="rango_salarial"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="RD$45,000.00 - RD$60,000.00"
+                                required>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="description"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripción</label>
+                            <textarea id="descripción" rows="4"
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Escriba la descripción"></textarea>
+                        </div>
+                        <div>
+                            <label for="categoria"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categoría</label>
+                            <select id="categoria"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <optgroup label="Mostrar Todo">
+                                    <option selected value="todos">Todas las categorías</option>
+                                  </optgroup>
+                                  <optgroup label="Sistemas de Información">
+                                    <option value="desarrollo">Desarrollo</option>
+                                    <option value="administracion-sistemas">Administración de
+                                      Sistemas</option>
+                                    <option value="arquitectura-software">Arquitecto de
+                                      Software</option>
+                                    <option value="devops">DevOps</option>
+                                    <option value="datos">Análisis de Datos</option>
+                                    <option value="ux/ui">UX/UI</option>
+                                    <option value="qa">QA</option>
+                                  </optgroup>
+                                  <optgroup label="Marketing">
+                                    <option value="marketing-digital">Marketing Digital</option>
+                                    <option value="gestion-marketing">Gestión de Marketing</option>
+                                    <option value="disenio_creatividad">Diseño y Creatividad</option>
+                                    <option value="gestion_redes">Gestión de Redes Sociales</option>
+                                  </optgroup>
+                                  <optgroup label="Administración">
+                                    <option value="apoyo_adm">Apoyo Administrativo</option>
+                                    <option value="analisis_datos">Análisis y Gestión de
+                                      Datos</option>
+                                    <option value="gestion_proyectos">Gestión de Proyectos</option>
+                                    <option value="gestion_oficinas">Gestión de Oficinas</option>
+                                  </optgroup>
+                                  <optgroup label="Finanzas">
+                                    <option value="contabilidad">Contabilidad</option>
+                                    <option value="analisis_proy">Análisis y Proyección
+                                      Financiera</option>
+                                    <option value="auditoria">Auditoría y Control Interno</option>
+                                    <option value="asesoria">Asesoría Financiera</option>
+                                    <option value="gestion_fin">Gestión Financiera</option>
+                                  </optgroup>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="ubicacion"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ubicación</label>
+                            <input type="text" name="ubicacion" id="ubicacion"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Escribe la ubicación" required>
+                        </div>
+
+                        <form class="max-w-[16rem] mx-auto grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="start-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de inicio</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <input type="date" id="start-date" class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                </div>
+                            </div>
+                            <div>
+                                <label for="end-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Fin</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <input type="date" id="end-date" class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                                </div>
+                            </div>
+                        </form>
+                        <div class="sm:col-span-2">
+                            <label for="requisitos"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Requisitos</label>
+                            <input type="text" name="requisitos" id="requisitos"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Escribe los requisitos" required>
+                        </div>
+                        <div>
+                            <label for="duracion"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Duración</label>
+                            <input type="text" name="duracion" id="duracion"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Escribe la duración" required>
+                        </div>
+                        <div>
+                            <label for="Horario"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Horario</label>
+                            <input type="text" name="Horario" id="Horario"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Escribe el Horario" required>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="Nivel Academico"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nivel Academico</label>
+                            <input type="text" name="NivelAcademico" id="NivelAcademico"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Escribe el nivel academico requerido" required>
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="inline-flex items-center px-5 dark:bg-blue-500 bg-black py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                        Añadir Oferta
+                    </button>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+[
+    {
+        "image" : "john.jpg",
+        "name" : "John Doe",
+        "puesto" : "Desarrollador FullStack",
+        "descripcion" : "Desarrollador FullStack con experiencia en React, NodeJS, Javascript, HTML, CSS",
+        "habilidades" : "React, NodeJS, Javascript, HTML, CSS",
+        "status" : "En revisión",
+        "color" : "text-orange-500"
+    },
+    {
+        "image" : "walter.jpg",
+        "name" : "Juan Pérez",
+        "puesto" : "Desarrollador Frontend",
+        "descripcion" : "Desarrollador Frontend con experiencia en React, Javascript, HTML, CSS",
+        "habilidades" : "React, Javascript, HTML, CSS",
+        "status" : "Iniciado",
+        "color" : "text-blue-500"
+    },
+    {
+        "image" : "zuri.jpeg",
+        "name" : "Zuri White",
+        "puesto" : "DevOps Engineer",
+        "descripcion" : "DevOps Engineer con experiencia en Jenkins, Docker, Kubernetes, Inglés avanzado",
+        "habilidades" : "Jenkins, Docker, Kubernetes, Inglés avanzado",
+        "status" : "Aceptado",
+        "color" : "text-green-500"
+    },
+    {
+        "image" : "yokasta.jpg",
+        "name" : "Yokasta García",
+        "puesto" : "Diseñadora UX/UI",
+        "descripcion" : "Diseñadora UX/UI con experiencia en Figma y Sketch",
+        "habilidades" : "Figma, Sketch",
+        "status" : "En revisión",
+        "color" : "text-orange-500"
+    },
+    {
+        "image" : "Oscar.jpg",
+        "name" : "Oscar Rodríguez",
+        "puesto" : "Desarrollador Backend",
+        "descripcion" : "Desarrollador Backend con experiencia en NodeJS, PHP, Java",
+        "habilidades" : "NodeJS, PHP, Java",
+        "status" : "Aceptado",
+        "color" : "text-green-500"
+    },
+    {
+        "image" : "Ariel.jpeg",
+        "name" : "Ariel Pérez",
+        "puesto" : "Administrador de Sistemas",
+        "descripcion" : "Administrador de Sistemas con experiencia en administración de servidores Linux y Windows",
+        "habilidades" : "Administración de servidores Linux y Windows",
+        "status" : "Rechazado",
+        "color" : "text-red-500"
+    }
+]
