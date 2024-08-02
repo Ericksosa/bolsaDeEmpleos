@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let allJobs = [];
 
-  fetch("/data/candidatos.json")
+  fetch("../../../data/candidatos.json")
     .then((response) => response.json())
     .then((jobs) => {
       allJobs = jobs;
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="p-4 w-full md:w-1/2 lg:w-1/3" id="candidatos-container">
           <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
             <div class="flex items-center mb-4">
-              <img class="w-20 h-16 rounded-full mr-4" src="/assets/candidatos/${job.image}" alt="Profile Picture">
+              <img class="w-20 h-16 rounded-full mr-4" src="../../../assets/candidatos/${job.image}" alt="Profile Picture">
               <div>
                 <h3 class="text-xl font-bold text-gray-800 dark:text-white">${job.name}</h3>
                 <p class="text-gray-600 dark:text-gray-300">${job.puesto}</p>
